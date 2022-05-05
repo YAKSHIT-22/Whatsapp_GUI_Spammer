@@ -12,13 +12,13 @@
 <li>Google Chrome🌏</li>
 <li>Note:- Download the ChromeDriver Carefully according the version of your OS and Google Chrome...😉 and if any error comes related to Xpath not found then change the Xpath in code by logging to Whatsapp Web and using inspect tool on Message Box of Whatsapp...😈
 <p align="center">
-<h3>Usage😁:-
+ <h3>Usage😁:-</h3>
 <ul>
 <li>git clone https://github.com/YAKSHIT-22/Whatsapp_GUI_Spammer</li>
 <li>cd Whatsapp_GUI_Spammer</li>
 <li>./whats.py or python3 whats.py</li>
-  </ul></h3>
-😀
+  </ul>
+
 <br>
 </p>
 <h2>Feel Free To Fork This Repo.(●'◡'●) And Please Support Me By Giving Star..🎇</h2>
