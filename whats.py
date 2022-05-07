@@ -78,4 +78,4 @@ Label(root,text="No Of Message").place(x=120,y=220)
 msgCount=IntVar()
 countBox=Entry(root,textvariable=msgCount).place(x=220,y=220)
 tk.Button(root,text="Start Bombing",command=startBombing).place(relx=.5,y=300,anchor="center")
-root.mainloop()
+root.mainloop();
