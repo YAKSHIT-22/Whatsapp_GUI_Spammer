@@ -4,6 +4,8 @@ from tkinter import *
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+
 import os
 
 def clear():
@@ -25,7 +27,7 @@ x="""\33[32m\n
  ━┗┛┗┛━┗┛┗┛┗━━━┛━┗━┛┗━━┛┗━━━┛┃┏━┛┃┏━┛━━━━┗━━━┛┗━━━┛┗━━┛━━━━┗━━━┛┃┏━┛┗━━━┛┗┻┻┛┗┻┻┛┗━━┛┗┛━
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃┃━━┃┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃┃━━━━━━━━━━━━━━━━━━━━━━
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━┗┛━━┗┛━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┗┛━━━━━━━━━━━━━━━━━━━━━━
- CODED BY:- YAKSHIT@LUCIFER
+
                                                                                                                                   
 """
 y = 0
@@ -41,19 +43,19 @@ def startBombing():
     num=msgCount.get()
     options=webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    PATH='C:/Users/yaksh/Downloads/chromedriver_win32/chromedriver.exe'
-    driver=webdriver.Chrome(PATH,options=options)
+    PATH=Service('C:/Users/yaksh/Downloads/chromedriver.exe')
+    driver=webdriver.Chrome(service=PATH,options=options)
     driver.get("https://web.whatsapp.com/")
 
-    time.sleep(15)
-    user=driver.find_element_by_xpath('//span[@title = "{}"]'.format(victim))
+    time.sleep(50)
+    user=driver.find_element(by=By.XPATH, value='//span[@title = "{}"]'.format(victim))
     user.click()
 
-    msg_box=driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div/div/div[2]/div[1]/div/div[2]')
+    msg_box=driver.find_element(by=By.XPATH, value='//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div')
     for i in range(num):
         msg_box.send_keys(msg)
-        sendButton = driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div/div/div[2]/div[2]')
-        sendButton.click()
+        time.sleep(1)
+        msg_box.send_keys(Keys.RETURN)
     print("Work Done")
 
 #GUI
@@ -78,4 +80,4 @@ Label(root,text="No Of Message").place(x=120,y=220)
 msgCount=IntVar()
 countBox=Entry(root,textvariable=msgCount).place(x=220,y=220)
 tk.Button(root,text="Start Bombing",command=startBombing).place(relx=.5,y=300,anchor="center")
-root.mainloop();
+root.mainloop()
